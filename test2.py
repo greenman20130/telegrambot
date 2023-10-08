@@ -11,11 +11,11 @@ page = 0
 print(len(btn_generator))
     
 bot = telebot.TeleBot(TOKEN)
-help_txt = """Этот бот отправяет тебе актуальные валюты"""
+
 @bot.message_handler(commands=['start', 'help'])
 def handle_start_help(message):
     global page
-    bot.send_message(message.chat.id, f"""Привет, {message.chat.username}!\n{help_txt}""", reply_markup=key_board(page))
+    bot.send_message(message.chat.id, f"Привет, {message.chat.username}!\nЭтот бот отправяет тебе актуальные валюты", reply_markup=key_board(page))
 
 
 @bot.message_handler(content_types=["text"])
